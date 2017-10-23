@@ -8,10 +8,22 @@ public class RobotImpl implements Robot {
 		return currentPosition;
 	}
 
-	public void setCurrentPosition(Position currentPosition) {
+	public boolean setCurrentPosition(Position currentPosition) {
+		if (currentPosition == null)
+			return false;
+		
 		this.currentPosition = currentPosition;
+		return true;
 	}
 
+    public boolean setPosition(Position position) {
+        if (position == null)
+            return false;
+
+        this.currentPosition = position;
+        return true;
+    }
+    
 	@Override
 	public Position move() {
 		switch (currentPosition.getDirection()) {
